@@ -1,0 +1,73 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.contenedor-principal
+{
+	-fx-spacing: 10;
+	-fx-alignment: center;
+	-fx-background-color: #887CAF;
+}
+
+
+.text-field
+{
+	-fx-background-color: white;
+}
+
+.label
+{
+	-fx-font-size: 15; 
+	-fx-text-fill: #061539;
+}
+
+.titulo
+{
+	-fx-font-size: 36;
+	-fx-font-family: verdana;
+	-fx-font-weight: bolder;
+	-fx-text-fill: #403075;
+}
+
+
+.grilla-datos
+{
+	-fx-spacing: 10;
+	-fx-grid-lines-visible: false;
+	-fx-vgap: 3;
+}
+
+
+.button 
+{
+	-fx-border-radius: 10;
+	/*-fx-border-color: white;*/
+	-fx-font-size: 20;
+	-fx-alignment: center;
+	-fx-background-color: white;
+}
+
+.hbox-botones
+{
+	-fx-hgap: 10;
+	-fx-spacing: 10;
+}
+
+.vbox
+{
+	-fx-hgap: 10;
+	-fx-spacing: 10;
+}
+
+#btnSalir
+{
+	/*-fx-background-color: red;*/
+	-fx-background-image: url("/cancel.png"); 
+	-fx-background-repeat: stretch ;
+	-fx-background-size: contain ;
+}
+
+#txtAreaSinopsis {
+	-fx-wrap-text: false;
+}
+
+#chbTipoPelicula .label {
+	-fx-background-color: green;
+}

@@ -1,0 +1,19 @@
+
+.titulo
+{
+	-fx-font-size: 36;
+	-fx-font-family: verdana;
+	-fx-font-weight: bolder;
+	-fx-text-fill: green;
+}
+
+
+
+.text-field{
+	-fx-background-color: green;
+	-fx-text-fill: black;
+}
+
+#txtAreaSinopsis {
+	-fx-wrap-text: true;
+}

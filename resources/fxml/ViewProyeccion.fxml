@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox stylesheets="application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerProyeccion">
+   <children>
+      <Label styleClass="titulo" text="Proyecciones" />
+      <GridPane>
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Pelicula" />
+            <ChoiceBox fx:id="chbPelicula" prefWidth="150.0" GridPane.columnIndex="1" />
+            <Label text="Fecha Proyeccion" GridPane.rowIndex="1" />
+            <DatePicker fx:id="dateProyeccion" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Sala" GridPane.rowIndex="2" />
+            <Spinner fx:id="spnSala" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Tipo Proyeccion" GridPane.rowIndex="3" />
+            <ChoiceBox fx:id="chbTipoProyeccion" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="Hora" GridPane.rowIndex="4" />
+            <Slider fx:id="sldrHora" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="Minuto" GridPane.rowIndex="5" />
+            <Slider fx:id="sldrMinuto" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="lblHora" text="0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Label fx:id="lblMinuto" text="0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+         </children>
+      </GridPane>
+	  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="230.0" styleClass="hbox-botones">
+         <children>
+            <Button mnemonicParsing="false" text="Guardar" />
+            <Button mnemonicParsing="false" text="Limpiar" />
+            <Button fx:id="btnSalir" mnemonicParsing="false" text="Cancelar" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
