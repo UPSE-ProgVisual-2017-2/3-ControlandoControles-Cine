@@ -56,6 +56,7 @@ public class ControllerPelicula {
 	}
 	
 	public void guardar() {
+		pojo = new Pelicula();
 		System.out.println(txtTitulo.getText());
 		pojo.setTitulo(txtTitulo.getText());
 		pojo.setSinopsis(txtAreaSinopsis.getText());
@@ -64,6 +65,7 @@ public class ControllerPelicula {
 		pojo.setCostoProduccion(Integer.parseInt(txtCosto.getText()));
 		pojo.setTipo(chbTipoPelicula.getValue());
 		System.out.println(pojo);
+		Context.getInstance().addPelicula(pojo);
 		
 	}
 	

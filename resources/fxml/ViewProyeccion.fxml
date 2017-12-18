@@ -48,8 +48,8 @@
       </GridPane>
 	  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="230.0" styleClass="hbox-botones">
          <children>
-            <Button mnemonicParsing="false" text="Guardar" />
-            <Button mnemonicParsing="false" text="Limpiar" />
+            <Button mnemonicParsing="false" text="Guardar" onAction="#guardar" />
+            <Button mnemonicParsing="false" text="Limpiar" onAction="#limpiar" />
             <Button fx:id="btnSalir" mnemonicParsing="false" text="Cancelar" />
          </children>
       </HBox>

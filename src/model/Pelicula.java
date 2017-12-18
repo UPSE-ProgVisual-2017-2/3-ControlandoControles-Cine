@@ -9,6 +9,7 @@ public class Pelicula {
 	private int duracionMinutos;
 	private int costoProduccion;
 	
+	
 	public Pelicula()
 	{
 		

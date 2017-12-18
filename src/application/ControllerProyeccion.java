@@ -1,5 +1,6 @@
 package application;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,7 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory;
 import model.Pelicula;
+import model.Proyeccion;
 import model.TipoPelicula;
 import model.TipoProyeccion;
 
@@ -30,6 +32,8 @@ public class ControllerProyeccion {
 	@FXML Slider sldrMinuto;
 	@FXML Label lblHora;
 	@FXML Label lblMinuto;
+	
+	private Proyeccion pojo;
 	
 	public ControllerProyeccion() {
 		// TODO Auto-generated constructor stub
@@ -48,7 +52,13 @@ public class ControllerProyeccion {
 		spnSala.setValueFactory(spnValueFactoryInteger);
 		
 		//Creo un metodo falso para cargar peliculas (hasta mientras).
-		cargarPeliculas();
+		//cargarPeliculas();
+		
+		//Ahora si cargo las peliculas de verdad ingresadas 
+		//por medio de la vista viewPelicula
+		ObservableList<Pelicula> listaObservablePeliculas = 
+				FXCollections.observableArrayList(Context.getInstance().getListaPeliculas());
+		chbPelicula.setItems(listaObservablePeliculas);
 		
 		//Metodo para inicializar hora con valores max y min. 
 		//Luego amarro propiedad de texto de label a propiedad valor del Slider.
@@ -96,5 +106,25 @@ public class ControllerProyeccion {
 		ObservableList<Pelicula> observableListPelicula = FXCollections.observableArrayList(peliculasCartelera);
 		chbPelicula.setItems(observableListPelicula);
 	}
-
+	
+	public void guardar()
+	{
+		Pelicula pelicula = chbPelicula.getValue();
+		LocalDate fecha = dateProyeccion.getValue();
+		int sala = spnSala.getValue();
+		TipoProyeccion tipo = chbTipoProyeccion.getValue();
+		String hora = sldrHora.getValue() + "H" + sldrMinuto.getValue(); 
+		pojo = new Proyeccion(pelicula, fecha, sala, tipo, hora);
+		System.out.println(pojo);
+	}
+	
+	public void limpiar()
+	{
+		chbPelicula.setValue(null);
+		dateProyeccion.setValue(null);
+		spnSala.getValueFactory().setValue(1);
+		chbTipoProyeccion.setValue(null);
+		sldrHora.setValue(0);
+		sldrMinuto.setValue(0);
+	}
 }

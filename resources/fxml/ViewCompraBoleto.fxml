@@ -9,6 +9,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -17,8 +18,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox prefHeight="513.0" prefWidth="250.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="application.ControllerCompraPelicula">
+<VBox prefHeight="513.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerCompraBoleto">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
          <image>
@@ -43,12 +43,12 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Pelicula" />
-            <ChoiceBox fx:id="chbPelicula" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.hgrow="ALWAYS" />
+            <Label text="Proyeccion" />
+            <ChoiceBox fx:id="chbProyeccion" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.hgrow="ALWAYS" />
             <Label text="Fecha" GridPane.rowIndex="1" />
-            <DatePicker fx:id="dateProyeccion" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <DatePicker fx:id="dateProyeccion" disable="true" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="Horario" GridPane.rowIndex="2" />
-            <ListView editable="true" prefHeight="200.0" prefWidth="169.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="3">
+            <ListView disable="true" prefHeight="200.0" prefWidth="169.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="3">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" />
                </padding>
@@ -56,9 +56,12 @@
             <Spinner fx:id="spnNumBoletos" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label text="Num Boletos" GridPane.rowIndex="4" />
             <Label text="Tipo Pago" GridPane.rowIndex="6" />
-            <RadioButton mnemonicParsing="false" text="Efectivo" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <RadioButton mnemonicParsing="false" text="Visa" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <RadioButton mnemonicParsing="false" text="Master Card" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <RadioButton mnemonicParsing="false" selected="true" text="Efectivo" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <toggleGroup>
+                  <ToggleGroup fx:id="medioDePago" />
+               </toggleGroup></RadioButton>
+            <RadioButton mnemonicParsing="false" text="Visa" toggleGroup="$medioDePago" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <RadioButton mnemonicParsing="false" selected="true" text="Master Card" toggleGroup="$medioDePago" GridPane.columnIndex="1" GridPane.rowIndex="8" />
             <CheckBox fx:id="chkTarjetaDescuento" mnemonicParsing="false" text="Tarjeta de Descuento" GridPane.columnSpan="2" GridPane.rowIndex="5" />
          </children>
       </GridPane>
