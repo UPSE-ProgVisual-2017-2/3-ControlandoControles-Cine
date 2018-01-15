@@ -6,11 +6,11 @@ public class Proyeccion {
 
 	private Pelicula pelicula;
 	private LocalDate fecha;
-	private int sala;
+	private Cine.Sala sala;
 	private TipoProyeccion tipo;
 	private String hora;
 	
-	public Proyeccion(Pelicula pelicula, LocalDate fecha, int sala, TipoProyeccion tipo, String hora) {
+	public Proyeccion(Pelicula pelicula, LocalDate fecha, Cine.Sala sala, TipoProyeccion tipo, String hora) {
 		this.pelicula = pelicula;
 		this.fecha = fecha;
 		this.sala = sala;
@@ -34,11 +34,11 @@ public class Proyeccion {
 		this.fecha = fecha;
 	}
 
-	public int getSala() {
+	public Cine.Sala getSala() {
 		return sala;
 	}
 
-	public void setSala(int sala) {
+	public void setSala(Cine.Sala sala) {
 		this.sala = sala;
 	}
 

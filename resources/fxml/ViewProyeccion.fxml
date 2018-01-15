@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox stylesheets="application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerProyeccion">
+<VBox stylesheets="application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerProyeccion">
    <children>
       <Label styleClass="titulo" text="Proyecciones" />
       <GridPane>
@@ -35,7 +35,8 @@
             <Label text="Fecha Proyeccion" GridPane.rowIndex="1" />
             <DatePicker fx:id="dateProyeccion" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="Sala" GridPane.rowIndex="2" />
-            <Spinner fx:id="spnSala" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+<!--             <Spinner fx:id="spnSala" GridPane.columnIndex="1" GridPane.rowIndex="2" /> -->
+			<ChoiceBox fx:id="chbSala" GridPane.rowIndex="2" GridPane.columnIndex="1" />
             <Label text="Tipo Proyeccion" GridPane.rowIndex="3" />
             <ChoiceBox fx:id="chbTipoProyeccion" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label text="Hora" GridPane.rowIndex="4" />

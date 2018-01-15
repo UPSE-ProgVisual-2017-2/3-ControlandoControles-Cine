@@ -8,7 +8,9 @@ public class Cine {
 
 	private static String RUC = "007123456123001";
 	
-	public static class Factura{
+	private List<Sala> listaSalas = new ArrayList<Sala>();
+	
+ 	public static class Factura{
 		private LocalDate fechaEmision;
 		private String cajero;
 		private Cliente cliente;
@@ -132,7 +134,22 @@ public class Cine {
 	}
 	
 	public Cine() {
-		// TODO Auto-generated constructor stub
+		listaSalas = new ArrayList<Sala>();
+	}
+	
+	public void agregarSala(Sala s)
+	{
+		listaSalas.add(s);
+	}
+	
+	public void borrarSala(Sala s)
+	{
+		listaSalas.remove(s);
+	}
+	
+	public List<Sala> getListaSalas()
+	{
+		return listaSalas;
 	}
 
 }
