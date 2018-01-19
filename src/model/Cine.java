@@ -16,6 +16,7 @@ public class Cine {
 		private Cliente cliente;
 		private DetalleFactura detalle;
 		private float subtotal;
+		private float descuento = 0;
 		private float impuestos;
 		private float total;
 		
@@ -26,8 +27,20 @@ public class Cine {
 		}
 		
 		public class DetalleFactura{
-			List<Item> listaItems = new ArrayList<Item>();
+			private List<Item> listaItems = new ArrayList<Item>();
+
+			public List<Item> getListaItems() {
+				return listaItems;
+			}
+
+			public void setListaItems(List<Item> listaItems) {
+				this.listaItems = listaItems;
+			}
 			
+			public void addItem(Item i)
+			{
+				listaItems.add(i);
+			}
 		}
 
 		public LocalDate getFechaEmision() {
@@ -56,6 +69,41 @@ public class Cine {
 		public float calcularTotal() {
 			total = subtotal + impuestos;
 			return total;
+		}
+		
+		
+		public float calcularDescuento(int porcentajeDescuento, boolean tieneDescuentoEspecial)
+		{
+			class DescuentoEspecial{
+				String codigoUnicoDescuentoEspecial;
+				final float porcentajeDescuento = 40;
+				
+				public DescuentoEspecial(String codigoUnicoDescuentoEspecial)
+				{
+					this.codigoUnicoDescuentoEspecial = codigoUnicoDescuentoEspecial; 
+				}
+			}
+			
+			float precioNormal = 0;
+			for(Item i: detalle.getListaItems())
+			{
+				precioNormal = precioNormal + i.getPrecioUnitario();
+			}
+			
+			
+			DescuentoEspecial descuentoEspecial;
+			if(tieneDescuentoEspecial)
+			{
+				 descuentoEspecial = new DescuentoEspecial("ASDFASDFZXCQWE");
+			}else
+			{
+				descuentoEspecial = null;
+			}
+			
+			float valorDescuentoEspecial = precioNormal * descuentoEspecial.porcentajeDescuento;
+			descuento = precioNormal * porcentajeDescuento/100 + valorDescuentoEspecial;
+			subtotal = precioNormal - descuento;
+			return subtotal;
 		}
 		
 		
