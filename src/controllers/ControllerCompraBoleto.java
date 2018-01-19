@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.Set;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,7 +17,6 @@ public class ControllerCompraBoleto {
 
 	@FXML ChoiceBox<Proyeccion> chbProyeccion;
 	@FXML DatePicker dateProyeccion;
-	@FXML Spinner<Integer> spnNumBoletos;
 	@FXML CheckBox chkTarjetaDescuento;
 	
 	ControllerHelper helper = new ControllerHelper();
@@ -26,10 +27,6 @@ public class ControllerCompraBoleto {
 	
 	public void initialize()
 	{
-		
-		SpinnerValueFactory<Integer> value = new IntegerSpinnerValueFactory(1,30);
-		spnNumBoletos.setValueFactory(value);
-		
 		cargarProyecciones();
 	}
 
@@ -49,6 +46,16 @@ public class ControllerCompraBoleto {
 		}else{
 			ControllerHelper.mostrarAlertaError("Debe seleccionar una proyeccion");
 		}
+	}
+	
+	public void confirmarCompra()
+	{
+		Set<Integer> asientosVendidos = Context.getInstance().getProyeccionActual().getAsientosVendidos();
+		System.out.println("Asientos Vendidos al momento:" + asientosVendidos);
+		System.out.println("Asientos seleccionados para vender: " + Context.getInstance().getAsientosSeleccionadosParaVenta());
+		asientosVendidos.addAll(Context.getInstance().getAsientosSeleccionadosParaVenta());
+		System.out.println("Lista Actualizada asientos vendidos: " + asientosVendidos);
+		
 	}
 	
 }

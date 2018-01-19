@@ -1,7 +1,9 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import model.Cine;
 import model.Pelicula;
@@ -15,6 +17,7 @@ public class Context {
 	private List<Pelicula> listaPeliculas = new ArrayList<Pelicula>();
 	private List<Proyeccion> listaProyecciones = new ArrayList<Proyeccion>();
 	private Proyeccion proyeccionActual;
+	private Set<Integer> asientosSeleccionadosParaVenta = new HashSet<Integer>();
 	
 
 	public static Context getInstance()
@@ -70,6 +73,14 @@ public class Context {
 		this.proyeccionActual = proyeccionActual;
 	}
 
+	public Set<Integer> getAsientosSeleccionadosParaVenta() {
+		return asientosSeleccionadosParaVenta;
+	}
+
+	public void setAsientosSeleccionadosParaVenta(Set<Integer> asientosSeleccionadosParaVenta) {
+		this.asientosSeleccionadosParaVenta = asientosSeleccionadosParaVenta;
+	}
+
 	private void mockearCine()
 	{
 		
@@ -78,6 +89,7 @@ public class Context {
 		Cine.Sala sala3 = cine.new Sala(3, 5, Cine.TipoSonido.SURROUND, 3, Cine.TipoSala.VIP);
 		
 		cine.agregarSala(sala1);
+		cine.agregarSala(sala2);
 		cine.agregarSala(sala3);
 		//Creo salas
 		

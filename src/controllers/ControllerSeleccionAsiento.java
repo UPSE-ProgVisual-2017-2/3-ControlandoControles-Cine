@@ -1,5 +1,8 @@
 package controllers;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -17,6 +20,8 @@ public class ControllerSeleccionAsiento implements ControllerBase {
 	
 	private Cine.Sala sala;
 	private Proyeccion proyeccionActual;
+	
+	Set<Integer> asientosSeleccionadosParaVenta = new HashSet<Integer>();
 	
 	public ControllerSeleccionAsiento() {
 		// TODO Auto-generated constructor stub
@@ -43,7 +48,7 @@ public class ControllerSeleccionAsiento implements ControllerBase {
 				ToggleButton asiento = new ToggleButton(Integer.toString(index));
 				if(Context.getInstance().getProyeccionActual().getAsientosVendidos().contains(index))
 				{
-					asiento.setSelected(true);
+					asiento.setDisable(true);
 				}
 				//CheckBox silla = new CheckBox(Integer.toString(j));
 				//tileAsientos.getChildren().add(index, asiento);
@@ -55,7 +60,9 @@ public class ControllerSeleccionAsiento implements ControllerBase {
 						System.out.println("Seleccionado asiento toogle button: " + asiento.getText());
 						int numeroAsiento = Integer.parseInt(asiento.getText().trim());
 						System.err.println("Este es el numero de siento capturado en el evento " + numeroAsiento);
-						Context.getInstance().getProyeccionActual().venderAsiento(numeroAsiento);
+						//Context.getInstance().getProyeccionActual().venderAsiento(numeroAsiento);
+						asientosSeleccionadosParaVenta.add(numeroAsiento);
+						Context.getInstance().setAsientosSeleccionadosParaVenta(asientosSeleccionadosParaVenta);
 						
 					}
 				});
@@ -68,6 +75,11 @@ public class ControllerSeleccionAsiento implements ControllerBase {
 		//Para evitar que se cambie el tamano de la pantalla.
 		Stage stage = (Stage) tileAsientos.getScene().getWindow();
 		stage.setResizable(false);
+	}
+	
+	public void confirmarVenta()
+	{
+		
 	}
 
 	@Override
@@ -85,5 +97,7 @@ public class ControllerSeleccionAsiento implements ControllerBase {
 		}
 		
 	}
+	
+	
 
 }
