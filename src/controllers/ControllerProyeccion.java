@@ -73,6 +73,8 @@ public class ControllerProyeccion {
 		inicializarHora();
 		
 		inicializarMinutos();
+		
+		dateProyeccion.setValue(LocalDate.now());
 	}
 
 	private void inicializarHora() {

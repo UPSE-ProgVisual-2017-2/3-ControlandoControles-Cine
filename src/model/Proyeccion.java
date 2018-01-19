@@ -1,6 +1,9 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+
 
 public class Proyeccion {
 
@@ -10,12 +13,15 @@ public class Proyeccion {
 	private TipoProyeccion tipo;
 	private String hora;
 	
+	Set<Integer> asientosVendidos = new HashSet<Integer>(); 
+	
 	public Proyeccion(Pelicula pelicula, LocalDate fecha, Cine.Sala sala, TipoProyeccion tipo, String hora) {
 		this.pelicula = pelicula;
 		this.fecha = fecha;
 		this.sala = sala;
 		this.tipo = tipo;
 		this.hora = hora;
+		asientosVendidos = new HashSet<Integer>(); 
 	}
 
 	public Pelicula getPelicula() {
@@ -56,6 +62,20 @@ public class Proyeccion {
 
 	public void setHora(String hora) {
 		this.hora = hora;
+	}
+
+	public Set<Integer> getAsientosVendidos() {
+		return asientosVendidos;
+	}
+
+	public void setAsientosVendidos(Set<Integer> asientosVendidos) {
+		this.asientosVendidos = asientosVendidos;
+	}
+	
+	public void venderAsiento(Integer asiento)
+	{
+		asientosVendidos.add(asiento);
+		System.out.println("Asiento vendido " + asiento);
 	}
 
 	@Override

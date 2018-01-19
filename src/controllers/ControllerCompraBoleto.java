@@ -40,7 +40,15 @@ public class ControllerCompraBoleto {
 
 	public void llamarVistaSeleccionAsiento()
 	{
-		helper.abrirPantalla("Seleccion de Asientos", "/ViewSeleccionAsientos.fxml");
+		Context.getInstance().setProyeccionActual(chbProyeccion.getValue());
+		Proyeccion proyeccionSeleccionada = chbProyeccion.getValue();
+		if(proyeccionSeleccionada!=null)
+		{
+			helper.abrirPantallaPasoParametros("Seleccion de Asientos", "/ViewSeleccionAsientos.fxml", proyeccionSeleccionada.getSala());
+			//helper.abrirPantalla("Seleccion de Asientos", "/ViewSeleccionAsientos.fxml");
+		}else{
+			ControllerHelper.mostrarAlertaError("Debe seleccionar una proyeccion");
+		}
 	}
 	
 }

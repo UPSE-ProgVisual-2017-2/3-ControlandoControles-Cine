@@ -14,7 +14,9 @@ public class Context {
 	private Cine cine = new Cine();
 	private List<Pelicula> listaPeliculas = new ArrayList<Pelicula>();
 	private List<Proyeccion> listaProyecciones = new ArrayList<Proyeccion>();
+	private Proyeccion proyeccionActual;
 	
+
 	public static Context getInstance()
 	{
 		return instance;
@@ -60,6 +62,14 @@ public class Context {
 		this.cine = cine;
 	}
 	
+	public Proyeccion getProyeccionActual() {
+		return proyeccionActual;
+	}
+
+	public void setProyeccionActual(Proyeccion proyeccionActual) {
+		this.proyeccionActual = proyeccionActual;
+	}
+
 	private void mockearCine()
 	{
 		
