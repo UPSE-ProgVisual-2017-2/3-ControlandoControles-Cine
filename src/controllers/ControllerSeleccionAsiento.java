@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 import model.Cine;
@@ -53,10 +54,10 @@ public class ControllerSeleccionAsiento implements ControllerBase {
 				//CheckBox silla = new CheckBox(Integer.toString(j));
 				//tileAsientos.getChildren().add(index, asiento);
 				
-				asiento.setOnMouseClicked(new EventHandler<Event>() {
-
+				EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
+					
 					@Override
-					public void handle(Event event) {
+					public void handle(MouseEvent event) {
 						System.out.println("Seleccionado asiento toogle button: " + asiento.getText());
 						int numeroAsiento = Integer.parseInt(asiento.getText().trim());
 						System.err.println("Este es el numero de siento capturado en el evento " + numeroAsiento);
@@ -65,7 +66,10 @@ public class ControllerSeleccionAsiento implements ControllerBase {
 						Context.getInstance().setAsientosSeleccionadosParaVenta(asientosSeleccionadosParaVenta);
 						
 					}
-				});
+				};
+				
+				asiento.setOnMouseClicked(eventHandler);
+				asiento.setOnDragDetected(eventHandler);
 				
 				tileAsientos.getChildren().add(asiento);
 				

@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.TilePane?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerPrincipalCine">
-	<top>
-		<Button text="Ingresar Pelicula" onAction="#irViewPelicula" />
-	</top>
-	<center>
-		<Button text="Vender Boleto" onAction="#irViewVentaBoleto"/>
-	</center>
-	<bottom>
-		<Button text="Ingresar Proyeccion" onAction="#irViewProyeccion" />
-	</bottom>
-</BorderPane>
-
+<TilePane hgap="5.0" vgap="5.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerPrincipalCine">
+		<Button maxWidth="1.7976931348623157E308" onAction="#irViewPelicula" text="Ingresar Pelicula">
+      <TilePane.margin>
+         <Insets />
+      </TilePane.margin></Button>
+		<Button maxWidth="1.7976931348623157E308" onAction="#irViewVentaBoleto" text="Vender Boleto" />
+		<Button maxWidth="1.7976931348623157E308" onAction="#irViewProyeccion" text="Ingresar Proyeccion" />
+		<Button maxWidth="1.7976931348623157E308" text="Administrar Salas" />
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</TilePane>

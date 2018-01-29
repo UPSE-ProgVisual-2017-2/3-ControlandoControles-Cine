@@ -12,7 +12,7 @@ import model.Proyeccion;
 public class Context {
 
 	private final static Context instance = new Context();
-	
+
 	private Cine cine = new Cine();
 	private List<Pelicula> listaPeliculas = new ArrayList<Pelicula>();
 	private List<Proyeccion> listaProyecciones = new ArrayList<Proyeccion>();

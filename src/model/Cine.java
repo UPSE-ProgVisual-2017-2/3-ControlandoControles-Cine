@@ -10,7 +10,9 @@ public class Cine {
 	
 	private List<Sala> listaSalas = new ArrayList<Sala>();
 	
+	
  	public static class Factura{
+
 		private LocalDate fechaEmision;
 		private String cajero;
 		private Cliente cliente;
@@ -74,6 +76,7 @@ public class Cine {
 		
 		public float calcularDescuento(int porcentajeDescuento, boolean tieneDescuentoEspecial)
 		{
+
 			class DescuentoEspecial{
 				String codigoUnicoDescuentoEspecial;
 				final float porcentajeDescuento = 40;
@@ -116,7 +119,7 @@ public class Cine {
 		private TipoSonido tipoSonido;
 		private int id;
 		private TipoSala tipoSala;
-		
+				
 		public Sala(int filas, int columnas, TipoSonido tipoSonido, int id, TipoSala tipoSala) {
 			super();
 			this.filas = filas;
