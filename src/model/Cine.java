@@ -10,6 +10,8 @@ public class Cine {
 	
 	private List<Sala> listaSalas = new ArrayList<Sala>();
 	
+	private List<Pelicula> listaPeliculas = new ArrayList<Pelicula>();
+	
 	
  	public static class Factura{
 
@@ -201,6 +203,21 @@ public class Cine {
 	public List<Sala> getListaSalas()
 	{
 		return listaSalas;
+	}
+	
+	
+	
+	public List<Pelicula> getListaPeliculas() {
+		return listaPeliculas;
+	}
+
+	public void setListaPeliculas(List<Pelicula> listaPeliculas) {
+		this.listaPeliculas = listaPeliculas;
+	}
+
+	public void agregarPelicula(Pelicula p)
+	{
+		listaPeliculas.add(p);
 	}
 
 }

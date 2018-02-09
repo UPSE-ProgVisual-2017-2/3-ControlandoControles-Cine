@@ -8,6 +8,7 @@ public class Pelicula {
 	private String director;
 	private int duracionMinutos;
 	private int costoProduccion;
+	private int calificacion;
 	
 	
 	public Pelicula()
@@ -87,10 +88,18 @@ public class Pelicula {
 		this.titulo = titulo;
 	}
 
+	public int getCalificacion() {
+		return calificacion;
+	}
+
+	public void setCalificacion(int calificacion) {
+		this.calificacion = calificacion;
+	}
+
 	@Override
 	public String toString() {
 		return "Pelicula [titulo=" + titulo + ", sinopsis=" + sinopsis + ", tipo=" + tipo + ", director=" + director
-				+ ", duracionMinutos=" + duracionMinutos + ", costoProduccion=" + costoProduccion + "]";
+				+ ", duracionMinutos=" + duracionMinutos + ", costoProduccion=" + costoProduccion + "]\n";
 	}
 	
 	

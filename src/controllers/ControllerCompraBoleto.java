@@ -2,11 +2,13 @@ package controllers;
 
 import java.util.Set;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
@@ -14,6 +16,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 import model.ManejadorEventoAbortar;
 import model.Proyeccion;
 
@@ -37,14 +41,27 @@ public class ControllerCompraBoleto {
 		//EventHandler<ActionEvent> manejador = new ManejadorEventoAbortar();
 		//btnAbortarOperacion.setOnAction(manejador);
 		
-		btnAbortarOperacion.setOnAction(new EventHandler<ActionEvent>() {
+		
+		/*btnAbortarOperacion.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				System.out.println("Aborto mas rapido jajaja");
-				
+				Scene escena = chbProyeccion.getScene();
+				Stage escenario = (Stage) escena.getWindow();
+				escenario.close();
 			}
-		});
+		});*/
+		
+		/*btnAbortarOperacion.setOnAction(e -> {
+			System.out.println("Expresion lambda =)");
+			Scene escena = chbProyeccion.getScene();
+			Stage escenario = (Stage) escena.getWindow();
+			escenario.close();
+		});*/
+		
+		//Este boton cierra la ventana
+		btnAbortarOperacion.setOnAction(e -> ((Stage)chbProyeccion.getScene().getWindow()).close());
+		//btnAbortarOperacion.setOnAction(e -> Platform.exit() );
 	}
 
 	private void cargarProyecciones() {
