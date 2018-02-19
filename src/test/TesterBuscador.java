@@ -1,10 +1,13 @@
 package test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import controllers.Context;
+import controllers.ControllerHelper;
 import model.Buscador;
 import model.Cine;
+import model.Cliente;
 import model.Criterio;
 import model.CriterioDuracionMayor;
 import model.CriterioTituloPelicula;
@@ -131,7 +134,7 @@ public class TesterBuscador {
 							return false;
 						} );
 		*/
-		
+		/*
 		List<Pelicula> listaPeliculasSinopsisCambiadaGenerica =
 				googleTrucho.buscarPeliculaYEjecutarAccion(
 						cinecito.getListaPeliculas(), 
@@ -140,7 +143,8 @@ public class TesterBuscador {
 		
 		System.out.println("****Peliculas sin sinopsis a las que se agrego sinopsis generica****");
 		System.out.println(listaPeliculasSinopsisCambiadaGenerica);
-		
+		*/
+		/*
 		List<Pelicula> listaPeliculasRankingPorDefault =
 				googleTrucho.buscarPeliculaYEjecutarAccion(
 						cinecito.getListaPeliculas(), 
@@ -149,6 +153,69 @@ public class TesterBuscador {
 		
 		System.out.println("****Peliculas sin calificacion a las que se agrego calificacion por defecto****");
 		System.out.println(listaPeliculasRankingPorDefault);
+		*/
+		/*
+		List<Pelicula> listaPeliculasRankeadasYSugeridas =
+				googleTrucho.buscarPeliculaEjecutarAccionMapeadoraYConsuma(cinecito.getListaPeliculas(), 
+						p -> p.getTipo()==TipoPelicula.TERROR, 
+						p -> {
+								Float rankingNetflixTrucho;
+								rankingNetflixTrucho = (float) (p.getDuracionMinutos()/60 * p.getCostoProduccion()/1000000);
+								return rankingNetflixTrucho;
+						}, 
+						ranking -> ControllerHelper.enviarEmail("peladoSadico@gmail.com", 
+								"Te hemos sugerido la siguiente pelicula con el ranking " + ranking ));
+		System.out.println("****Peliculas Sadicas Salvajes 7****");
+		System.out.println(listaPeliculasRankeadasYSugeridas);
+		*/
 		
+		/*
+		List<Pelicula> listaPeliculasRankeadasYSugeridasGenericas =
+				 googleTrucho.<Pelicula,Float>procesadorElementosVerificados(
+						cinecito.getListaPeliculas(),
+						p -> p.getTipo()==TipoPelicula.ACCION,
+						(Pelicula p) -> {
+							Float rankingNetflixTrucho;
+							rankingNetflixTrucho = (float) (p.getDuracionMinutos()/60 * p.getCostoProduccion()/1000000);
+							return rankingNetflixTrucho;
+						}, 
+						(Float ranking) -> ControllerHelper.enviarEmail("peladoSadico@gmail.com", 
+								"Te hemos sugerido la siguiente pelicula con el ranking " + ranking ) );
+		System.out.println("****Peliculas de Accion Activas****");
+		System.out.println(listaPeliculasRankeadasYSugeridasGenericas);
+		*/
+		/*
+		//Clientes de Prueba
+		Cliente c1 = new Cliente("Janio", "2099876654");
+		Cliente c2 = new Cliente("Bryan", "2499999999", "Chanduy", "042333555");
+		Cliente c3 = new Cliente("Sra. Paola", "0922222222", "Ancon", "042444422");
+		List<Cliente> clientesCine = new ArrayList<Cliente>();
+		clientesCine.add(c1);
+		clientesCine.add(c2);
+		clientesCine.add(c3);
+		
+		List<Cliente> listaClientesPuntuados =
+				 googleTrucho.<Cliente,Integer>procesadorElementosVerificados(
+						clientesCine,
+						(Cliente c) -> c.getDireccion()!=null && c.getDireccion()!="",
+						(Cliente c) -> {
+							Integer rango;
+							rango = ((c.getNombre().length()<6)?1:0);
+							return rango;
+						}, 
+						(Integer rango) -> { if(rango>0)
+							{ControllerHelper.enviarEmail("email@gmail.com", 
+								"Te invitamos gratis a la funcion vip por se cliente rango" + rango ); }
+						});
+		System.out.println("****Clientes Preferenciales****");
+		System.out.println(listaClientesPuntuados);
+		*/
+		
+		//Enfoque 9: Streams (Son reales Jordy)
+		cinecito.getListaPeliculas()
+			.stream()
+			.filter(p -> p.getCalificacion()>2)
+			.map( p -> p.getTitulo())
+			.forEach(titulo -> System.out.println("Pelicula Rankeada " + titulo));
 	}
 }

@@ -65,5 +65,14 @@ public class ControllerHelper {
 		alertError.setContentText(mensaje);
 		alertError.show();
 	}
+	
+	
+	
+	public static void enviarEmail(String email, String mensaje)
+	{
+		System.out.println("Enviando email a " + email + "con el siguiente mensaje: ");
+		System.out.println(mensaje);
+		System.out.println("***Fin Email***");
+	}
 
 }

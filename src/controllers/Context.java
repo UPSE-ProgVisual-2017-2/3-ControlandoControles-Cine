@@ -105,10 +105,18 @@ public class Context {
 		Pelicula civicWar = new Pelicula("Civic War", "Guerra civil en su mortal extension", TipoPelicula.ACCION, "Juan Pueblo", 169, 45000000);
 		Pelicula cincuentaSombrasSalvajes = new Pelicula("50 sombras salvajes", "Amarrarla no es suficiente. En esta pelicula hay animales. Warning!", TipoPelicula.ADULTOS, 140);
 		Pelicula clasificacion2022 = new Pelicula("Clasificacion 2022 Qatar", "El espiritu de otilino toma el cuerpo de Felipao. Como harann los jugadores para escapar y clasificar", TipoPelicula.TERROR, 150);
+		clasificacion2022.setCostoProduccion(18000000);
+		Pelicula bambi2 = new Pelicula("Bambi2", "Bambi poseida con se de venganza, va a matar a quien quemo el bosque, ni el conejo se salvara.", TipoPelicula.TERROR, "Gotico", 135, 2000000);
 		Pelicula ratasRatonesRateros = new Pelicula("Ratas, Ratones y Rateros", "Muchos nengos en una situacion mortal", TipoPelicula.DRAMA, "Juan Pueblo", 189, 100000); 
 		Pelicula civicWar2 = new Pelicula("Civic War 2", "Guerra civil mas mortal. Mucha sangre.", TipoPelicula.ACCION, "Juan Pueblo", 180, 78000000);
 		Pelicula civicWar3 = new Pelicula("Civic War 3", "Guerra civil donde mueren los que no habian muerto antes. Mucha sangre, como en mi primera vez", TipoPelicula.ACCION, "Juan Pueblo", 177, 93000000);
 		Pelicula pulpFiction = new Pelicula("Pulp Fiction", "Muchos eventos se interrelacionan en una trama llenna de violecina. Quien es Marcelus Wallace?", TipoPelicula.ACCION, "Tarantino", 130, 33000000);
+		
+		
+		pulpFiction.setCalificacion(5);
+		civicWar.setCalificacion(2);
+		civicWar2.setCalificacion(3);
+		civicWar3.setCalificacion(1);
 		
 		cine.agregarPelicula(logan3);
 		cine.agregarPelicula(terminator3);
@@ -119,6 +127,8 @@ public class Context {
 		cine.agregarPelicula(civicWar2);
 		cine.agregarPelicula(civicWar3);
 		cine.agregarPelicula(pulpFiction);
+		cine.agregarPelicula(coco);
+		cine.agregarPelicula(bambi2);
 		
 		
 		listaPeliculas.addAll(cine.getListaPeliculas());

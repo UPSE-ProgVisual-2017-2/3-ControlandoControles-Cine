@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class Buscador {
@@ -112,7 +113,7 @@ public class Buscador {
 		return listaPeliculasEncontradas;
 	}
 	
-	//Enfoque 7: Usar mas interfaces funcionales
+	//Enfoque 7: Usar mas interfaces funcionales (consumer)
 	public List<Pelicula> buscarPeliculaYEjecutarAccion(
 			List<Pelicula> listaPeliculasDisponibles,
 			Predicate<Pelicula> predicate,
@@ -130,6 +131,45 @@ public class Buscador {
 		return listaPeliculasConsumidas;
 	}
 	
-	
+	//Enfoque 7: Interfaces funcionales que testean (predicate), consume y mapea
+	public List<Pelicula> buscarPeliculaEjecutarAccionMapeadoraYConsuma(
+			List<Pelicula> listaPeliculasDisponibles,
+			Predicate<Pelicula> predicate,
+			Function<Pelicula, Float> accionMapeadora,
+			Consumer<Float> accionConsumidora)
+	{
+		List<Pelicula> listaPeliculasConsumidas = new ArrayList<Pelicula>();
+		for(Pelicula p: listaPeliculasDisponibles)
+		{
+			if(predicate.test(p))
+			{
+				Float resultado = accionMapeadora.apply(p);
+				accionConsumidora.accept(resultado);
+				listaPeliculasConsumidas.add(p);
+			}
+		}
+		return listaPeliculasConsumidas;
+	}
+			
+	//Enfoque 8: Usando genericos al extremo.
+	public <X,H> List<X> procesadorElementosVerificados(
+			Iterable<X> elementos,
+			Predicate<X> predicado,
+			Function<X, H> mapeadora,
+			Consumer<H> consumidora)
+	{
+		List<X> listaElementosRetornables = new ArrayList<X>();
+		for(X x:elementos)
+		{
+			if(predicado.test(x))
+			{
+				H h = mapeadora.apply(x);
+				consumidora.accept(h);
+				listaElementosRetornables.add(x);
+			}
+				
+		}
+		return listaElementosRetornables;
+	}
 	
 }
