@@ -34,6 +34,7 @@ public class ControllerPelicula {
 	@FXML MediaView mediaMovie;
 	
 	private Pelicula pojo;
+
 	
 	
 	public void initialize()
@@ -47,11 +48,14 @@ public class ControllerPelicula {
 	
 	public void cargarImagen()
 	{
+		imgBanner.setManaged(false);
 		Image imagen = new Image("/spongebob.jpg");
 		imgBanner.setImage(imagen);
 		imgBanner.setPreserveRatio(true);
 		//imgBanner.setFitHeight(100);
 		imgBanner.setFitWidth(150);
+		imgBanner.setOnMouseDragEntered(e-> System.out.println("Arrastre comenzado"));
+		imgBanner.setOnDragDone(e -> System.out.println("Arrastre termidado"));
 		
 	}
 	
