@@ -113,6 +113,8 @@ public class ControllerCompraBoleto {
 			
 		});
 		
+		//btnAbortarOperacion.setOnMouseEntered(null);
+		
 		btnAbortarOperacion.setOnMouseClicked(e -> ((Stage)chbProyeccion.getScene().getWindow()).close());
 		//btnAbortarOperacion.setOnAction(e -> ((Stage)chbProyeccion.getScene().getWindow()).close());
 		//btnAbortarOperacion.setOnAction(e -> Platform.exit() );

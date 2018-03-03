@@ -26,6 +26,11 @@ public class ControllerPrincipalCine {
 		helper.abrirPantalla("Venta de Boletos", "/viewCompraBoleto.fxml");
 	}
 	
+	public void irViewBuscador()
+	{
+		helper.abrirPantalla("Buscador", "/ViewBuscadorGUI.fxml");
+	}
+	
 	public ControllerPrincipalCine() {
 		// TODO Auto-generated constructor stub
 	}
