@@ -12,6 +12,7 @@
 		<Button maxWidth="1.7976931348623157E308" onAction="#irViewVentaBoleto" text="Vender Boleto" />
 		<Button maxWidth="1.7976931348623157E308" onAction="#irViewProyeccion" text="Ingresar Proyeccion" />
 		<Button maxWidth="1.7976931348623157E308" text="Administrar Salas" />
+		<Button maxWidth="1.7976931348623157E308" text="Buscador" onAction="#irViewBuscador" /> 
    <padding>
       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
    </padding>
